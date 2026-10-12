@@ -4,8 +4,10 @@
 int gcd(int a, int b){
         if (((a & 1) == 0) && ((b & 1) == 0)){
                 return gcd(a >> 1, b >> 1) << 1;
-        } else if (((a & 1) == 0) && ((b & 1) == 1)){
+        } else if ((a & 1) == 0){
                 return gcd(a >> 1, b);
+        } else if ((b & 1) == 0) {
+                return gcd(a, b >> 1);
         } else if (a > b){
                 return gcd(a - b, b);
         } else if (a < b){
